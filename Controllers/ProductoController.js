@@ -29,8 +29,9 @@ function ProductoController() {
 
   this.save = async function(productoIn, res) {
     try {
-      let producto = await Producto.findById(mongoose.Types.ObjectId(_id));
-      res.send({ producto });
+      let producto = await new Producto(productoIn).save();
+      // let producto = await productoSave.save();
+      res.send({ success: true, producto });
     } catch (e) {
       // res.status(500).send({ success: false, mensaje: e.message });
       res.send({ success: false, mensaje: e.message });
