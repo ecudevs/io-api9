@@ -29,10 +29,13 @@ app.put("/productos", (req, res) => {
   ProductoController.update(req.body, res);
 });
 
-mongoose.connect("mongodb://localhost:27017/ionic9", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+mongoose.connect(
+  "mongodb://heroku_lkdpvq3k:8kur5bv4sjgvdeoe3usgpd3aqg@ds133556.mlab.com:33556/heroku_lkdpvq3k",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }
+);
 
 const port = process.env.PORT || "9000";
 app.set("port", port);
